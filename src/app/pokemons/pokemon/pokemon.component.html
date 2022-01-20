@@ -1,0 +1,4 @@
+<div *ngIf="pokemons$ | async as pokemons">
+  <div class="flex-item" *ngFor="let pokemon of pokemons">{{pokemon.name}}</div>
+</div>
+
