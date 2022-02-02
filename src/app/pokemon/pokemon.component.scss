@@ -1,0 +1,34 @@
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding: 0;
+  list-style: none;
+}
+
+.flex-item {
+  background-image: linear-gradient(to top, #7500FF , #A100FF);
+  padding: 5px;
+  width: 350px;
+  height: 500px;
+  margin-top: 60px;
+  margin-left: 20px;
+  margin-right: 20px;
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+  border-radius: 30px;
+  box-shadow:0px 24px 48px 0 rgba(0,0,0,0.26);
+}
+
+.flex-item:hover {
+  transform: scale(1.1);
+  transition: all 0.5s;
+}
+
+.pokemon-image {
+  position: relative;
+  height: 50%;
+  top: 10%;
+}

@@ -3,19 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PoModule } from '@po-ui/ng-components';
-import { PokemonComponent } from './pokemons/pokemon/pokemon.component';
-import { PokemonModule } from './pokemons/pokemon/pokemon.module';
+import { PokemonModule } from './pokemon/pokemon.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import { PokemonDetailsModule } from './pokemon-details/pokemon-details.module';
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
+    RouterModule,
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
-    PoModule,
-    PokemonModule
+    PokemonModule,
+    PokemonDetailsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
