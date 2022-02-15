@@ -13,7 +13,7 @@ import { PoBreadcrumb } from '@po-ui/ng-components';
 })
 
 export class PokemonDetailsComponent implements OnInit {
-  public pokemonid!: number;
+  public pokemonName!: number;
   private detailsList$!: Observable<PokemonDetails>;
   private isDefault: boolean = true;
 
@@ -32,7 +32,6 @@ export class PokemonDetailsComponent implements OnInit {
     { property: 'location_area_encounters', label: 'Áreas'},
     { property: 'moves', label: 'Movimentos', order: 0},
     { property: 'species', label: 'species' },
-    //{ property: 'sprites', label: 'sprites' },
     { property: 'types', label: 'Tipos' },
     { property: 'weight', label: 'Peso' }
   ];
@@ -59,18 +58,18 @@ export class PokemonDetailsComponent implements OnInit {
   public items = []
 
   ngOnInit() {
-    this.getId();
+    this.getName();
     this.injection();
   }
 
-  getId(){
-    this.route.params.subscribe((id: any)=>{
-      this.pokemonid = id.id;
+  getName(){
+    this.route.params.subscribe((nome: any)=>{
+      this.pokemonName = nome.nome;
     })
   }
 
   injection(){
-    this.detailsList$ = this.pokemonDetailsService.listaPokemonDetails(this.pokemonid);
+    this.detailsList$ = this.pokemonDetailsService.listaPokemonDetails(this.pokemonName);
     let abilitiesList = '';
     let formsList = '';
     let movesList = '';

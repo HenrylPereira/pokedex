@@ -4,7 +4,7 @@ import { PokemonComponent } from './pokemon.component';
 import { RouterModule, Routes } from '@angular/router';
 import { PoModule } from '@po-ui/ng-components';
 import { PoNavbarModule } from '@po-ui/ng-components';
-
+import { PoPageDynamicSearchModule } from '@po-ui/ng-templates';
 
 @NgModule({
   declarations: [PokemonComponent],
@@ -12,7 +12,7 @@ import { PoNavbarModule } from '@po-ui/ng-components';
     CommonModule,
     RouterModule,
     PoModule,
-    PoNavbarModule
+    PoPageDynamicSearchModule
   ],
   exports: [PokemonComponent]
 })

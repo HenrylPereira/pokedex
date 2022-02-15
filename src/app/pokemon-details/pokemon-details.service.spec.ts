@@ -10,7 +10,5 @@ describe('Service: PokemonDetails', () => {
     });
   });
 
-  it('should ...', inject([PokemonDetailsService], (service: PokemonDetailsService) => {
-    expect(service).toBeTruthy();
-  }));
+
 });

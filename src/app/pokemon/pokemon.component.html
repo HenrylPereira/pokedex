@@ -1,23 +1,15 @@
-<po-navbar
-  [p-items]="items"
-  [p-shadow]="true"
-  p-logo="https://www.purarteadesivos.com.br/wp-content/uploads/2017/04/adesivo-personalizado-pokebola-pokemon-recorte-eletronico-geek-nerd-gamer-pura-arte-adesivos.png"
->
-</po-navbar>
+<po-page-dynamic-search p-title="Pokedex by Henry" (p-quick-search)="search($event)">
   <div *ngIf="pokemons$ | async as pokemons">
     <div class="flex-container">
-      <a (click)="(openDetails(i+1))" *ngFor="let pokemon of pokemons.results; let i = index">
+      <a (click)="(openDetails(pokemon.name))" *ngFor="let pokemon of pokemons; let i = index">
         <div class="flex-item">
           {{pokemon.name}}
           <br>
-          <img class="pokemon-image" src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{i+1}}.png'>
-          <br>
-          {{i+1}}
+          <img class="pokemon-image" src='https://img.pokemondb.net/sprites/bank/normal/{{pokemon.name}}.png'>
         </div>
       </a>
     </div>
   </div>
-
-
+</po-page-dynamic-search>
 
 
