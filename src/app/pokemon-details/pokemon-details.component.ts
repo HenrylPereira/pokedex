@@ -13,8 +13,8 @@ import { PoBreadcrumb } from '@po-ui/ng-components';
 })
 
 export class PokemonDetailsComponent implements OnInit {
-  public pokemonName!: number;
-  private detailsList$!: Observable<PokemonDetails>;
+  public pokemonName!: string;
+  public detailsList$!: Observable<PokemonDetails>;
   private isDefault: boolean = true;
 
   constructor(private route: ActivatedRoute, private pokemonDetailsService: PokemonDetailsService) {

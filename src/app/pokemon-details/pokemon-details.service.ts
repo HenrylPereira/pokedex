@@ -11,7 +11,7 @@ export class PokemonDetailsService {
 
 constructor(private http: HttpClient) { }
 
-listaPokemonDetails(nome: number): Observable<PokemonDetails> {
+listaPokemonDetails(nome: string): Observable<PokemonDetails> {
   return this.http.get<PokemonDetails>(`http://pokeapi.co/api/v2/pokemon/${nome}`);
 }
 

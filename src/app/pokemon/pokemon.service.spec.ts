@@ -29,9 +29,7 @@ describe(PokemonService.name, () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [
-        PokemonService,
-      ]
+      providers: [ PokemonService ]
     });
     service = TestBed.inject(PokemonService);
     httpTestingController = TestBed.inject(HttpTestingController)

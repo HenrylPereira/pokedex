@@ -31,7 +31,7 @@ export class PokemonComponent implements OnInit {
         map(pokemons => pokemons.filter((pokemons:Pokemon) => pokemons.name.includes(filter)))
       )
     }else{
-      this.pokemons$ = this.pokemonService.listaPokemons().pipe(tap(console.log));
+      this.pokemons$ = this.pokemonService.listaPokemons();
     }
   }
 }

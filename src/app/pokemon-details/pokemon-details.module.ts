@@ -6,6 +6,7 @@ import { PoDynamicModule, PoModule } from '@po-ui/ng-components';
 import { PoTableModule } from '@po-ui/ng-components';
 import { PoBreadcrumbModule } from '@po-ui/ng-components';
 import { PoPageModule } from '@po-ui/ng-components';
+import { PokemonDetailsService } from './pokemon-details.service';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { PoPageModule } from '@po-ui/ng-components';
     PoBreadcrumbModule,
     PoPageModule
   ],
-  exports: [PokemonDetailsComponent]
+  exports: [PokemonDetailsComponent],
+  providers: [PokemonDetailsService]
 })
 export class PokemonDetailsModule { }
