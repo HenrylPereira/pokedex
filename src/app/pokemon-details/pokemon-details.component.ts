@@ -1,10 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PoDynamicViewField } from '@po-ui/ng-components';
-import { Observable } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 import { PokemonDetails } from './pokemon-details';
 import { PokemonDetailsService } from './pokemon-details.service';
 import { PoBreadcrumb } from '@po-ui/ng-components';
+import { Items } from './interfaces/items';
 
 @Component({
   selector: 'app-pokemon-details',
@@ -46,8 +47,7 @@ export class PokemonDetailsComponent implements OnInit {
 
   public title: any = '';
 
-  public employee = {
-  };
+  public employee!: PokemonDetails;
 
   public columns = [
     { property: 'stat', label: 'Estatística' },
@@ -55,7 +55,7 @@ export class PokemonDetailsComponent implements OnInit {
     { property: 'base_stat', label: 'Estatística base' },
   ];
 
-  public items = []
+  public items!: Items;
 
   ngOnInit() {
     this.getName();
@@ -69,45 +69,14 @@ export class PokemonDetailsComponent implements OnInit {
   }
 
   injection(){
-    this.detailsList$ = this.pokemonDetailsService.listaPokemonDetails(this.pokemonName);
-    let abilitiesList = '';
-    let formsList = '';
-    let movesList = '';
-    let typesList = '';
-    let itensList = '';
-    this.detailsList$.forEach(
-      (element) => {
-        element.abilities.forEach((abilities:any) => {
-          abilitiesList = abilitiesList ? abilitiesList + ", " + abilities.ability.name : abilities.ability.name;
-          element.abilities = abilitiesList;
-        });
-        element.forms.forEach((forms:any) => {
-          formsList = formsList ? formsList + ", " + forms.name : forms.name;
-          element.forms = formsList;
-        });
-        element.moves.forEach((moves:any) => {
-          movesList = movesList ? movesList + ", " + moves.move.name : moves.move.name;
-          element.moves = movesList;
-        });
-        element.types.forEach((types:any) => {
-          typesList = typesList ? typesList + ", " + types.type.name : types.type.name;
-          element.types = typesList;
-        });
-        element.held_items.forEach((items:any) => {
-          itensList = itensList ? itensList + ", " + items.item.name : items.item.name;
-          element.held_items = itensList;
-        });
-        element.stats.forEach((stats:any) => {
-          stats.stat = stats.stat.name;
-        });
-        this.isDefault = false ? element.is_default == false : true;
-        element.species = element.species.name;
-        this.items = element.stats;
-        this.employee = element;
-        this.title = element.name;
+    this.pokemonDetailsService.listaPokemonDetails(this.pokemonName).subscribe(
+      (elements) => {
+        this.employee = elements;
+        this.items = elements.stats;
+        this.items.forEach((item)=>{
+          item.stat = item.stat.name;
+        })
       }
-    )
+    );
   }
-
-
 }
