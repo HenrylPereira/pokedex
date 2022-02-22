@@ -29,12 +29,4 @@ describe(PokemonDetailsComponent.name, () => {
     component.getName();
     expect(component.pokemonName).toBe('bulbasaur');
   });
-
-  it(`#${PokemonDetailsComponent.prototype.injection.name} should return details of pokemon`, done => {
-    component.getName();
-    component.injection();
-    component.detailsList$.subscribe((list)=>{
-      expect(list.id).toBe(1);
-    });
-  });
 })
