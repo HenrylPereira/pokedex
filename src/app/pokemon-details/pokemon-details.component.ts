@@ -25,15 +25,15 @@ export class PokemonDetailsComponent implements OnInit {
     { property: 'name', label: 'Nome', order: 2 },
     { property: 'id', label: 'Número', divider: 'Informações', order: 1 },
     { property: 'order', label: 'Ordem'},
-    { property: 'abilities', label: 'Habilidades', order: 2 },
+    //{ property: 'abilities', label: 'Habilidades', order: 2 },
     { property: 'base_experience', label: 'Experiência base', order: 3 },
-    { property: 'forms', label: 'Formas' },
+    //{ property: 'forms', label: 'Formas' },
     { property: 'height', label: 'Altura'},
     { property: 'is_default', label: 'Padrão', tag: this.isDefault },
     { property: 'location_area_encounters', label: 'Áreas'},
-    { property: 'moves', label: 'Movimentos', order: 0},
-    { property: 'species', label: 'species' },
-    { property: 'types', label: 'Tipos' },
+    //{ property: 'moves', label: 'Movimentos', order: 0},
+    //{ property: 'species', label: 'species' },
+    //{ property: 'types', label: 'Tipos' },
     { property: 'weight', label: 'Peso' }
   ];
 
@@ -75,7 +75,7 @@ export class PokemonDetailsComponent implements OnInit {
         this.items = elements.stats;
         this.items.forEach((item)=>{
           item.stat = item.stat.name;
-        })
+        });
       }
     );
   }

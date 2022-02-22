@@ -29,4 +29,5 @@ describe(PokemonDetailsComponent.name, () => {
     component.getName();
     expect(component.pokemonName).toBe('bulbasaur');
   });
+
 })
